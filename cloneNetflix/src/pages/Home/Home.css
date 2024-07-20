@@ -81,3 +81,7 @@ con hero-btrs để hover*/
 .hero-btns .btn.dark-btn:hover{
     background: rgba(51, 51, 51, 0.6);
 }
+
+.more-cards{
+    padding-left:6% ;
+}

@@ -12,7 +12,8 @@
     gap: 10px;
     overflow-x: scroll;
 }
-/*để ẩn scroll bar theo trục x của card-list*/
+/*::-webkit-scrollbar: tùy chỉnh scrollbar tổng thể
+ở đây mình dùng display none là ẩn nó đi*/
 .card-list::-webkit-scrollbar{
     display: none;
 }
