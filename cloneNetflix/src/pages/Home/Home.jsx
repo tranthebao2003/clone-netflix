@@ -29,10 +29,8 @@ const Home = () => {
             </button>
           </div>
           <TitleCards/>
-        </div>
+        </div>   
       </div>
-
-
     </div>
   )
 }
