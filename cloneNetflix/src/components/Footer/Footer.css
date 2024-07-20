@@ -17,7 +17,11 @@
 }
 
 .footer ul{
+    /* grid nó khác với flexbox ở chỗ nó sắp sắp phần tử theo cả 2 chiều
+    còn thằng flex box thì chỉ theo 1 chiều thôi */
     display: grid;
+    /* ở đây mình khai báo grid này 4 cột và mình để
+    width của 4 cột là auto nên nó sẽ bằng nhau */
     grid-template-columns: auto auto auto auto;
     gap: 15px;
     margin-bottom: 30px;
