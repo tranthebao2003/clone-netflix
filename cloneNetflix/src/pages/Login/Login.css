@@ -57,13 +57,26 @@
 .login-form button{
     width: 100%;
     padding: 16px;
-    background: #d2030e;
     color:white;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
     margin-top: 20px;
+    transition: 0.3s ease-out;
+}
+
+.login-form .invalid{
+    background: #919191;
+    cursor: default;
+}
+
+.login-form .valid{
+    background: #d2030e;
     cursor: pointer;
+}
+
+.login-form .valid:hover{
+    background: #ee4049;
 }
 
 .form-help{
@@ -120,4 +133,27 @@
 }
 .lock:hover{
     scale: 1.1;
+}
+
+.login-spinner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-spinner img {
+    width: 60px;
+}
+
+@media (max-width: 500px) {
+    .login{
+        padding: 15px 8%;
+    }
+
+    .login-form{
+        padding: 20px;
+        margin-top: 30px;
+    }
 }

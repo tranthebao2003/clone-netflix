@@ -85,3 +85,56 @@ con hero-btrs để hover*/
 .more-cards{
     padding-left:6% ;
 }
+
+@media (max-width: 1024px) {
+    /*.title-cards cái class này nó ko nằm trong 
+    file home.jsx mà nó nằm trong file TitleCards.jsx
+    sở dĩ home.css select đc là vì TitleCards.jsx
+    này nó là 1 component trong file Home.jsx  */
+    .hero-caption .title-cards{
+        display: none;
+    }
+    .hero-btns{
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-caption{
+        padding-left: 4%;
+    }
+
+    .caption-img{
+        margin-bottom: 10px;
+        width: 40%;
+    }
+
+    .hero-caption p {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .hero-btns .btn img {
+        width: 20px;
+    }
+
+    .title-cards{
+        padding-right: 2%;
+    }
+}
+
+@media (max-width: 500px) {
+    .caption-img{
+        display: none;
+    }
+
+    .hero-btns .btn img{
+        width: 15px;
+    }
+
+    .hero-btns .btn{
+        padding: 4px 10px;
+        gap: 5px;
+        font-size: 10px;
+    }
+}

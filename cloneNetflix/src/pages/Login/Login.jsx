@@ -4,16 +4,18 @@ import logo from '../../assets/logo.png'
 import {login, signup} from '../../firebase'
 import lock from '../../assets/lock.png'
 import unlock from '../../assets/unlock.png'
+import netflix_spinner from '../../assets/netflix_spinner.gif'
 
 const Login = () => {
+  const [signState, setSignState] = useState("Sign In");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isValidPassword, setIsValidPassword] = useState(false);
 
-  const [signState, setSignState] = useState("Sign In")
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isValidPassword, setIsValidPassword] = useState()
+  const [loading, setLoading] = useState(false);
 
-  const [showHidePassword, setShowHidePassword] = useState(true)
+  const [showHidePassword, setShowHidePassword] = useState(true);
   const vertifyPassword = (password) => {
     // regexPassword: Minimum eight characters, at least one uppercase letter,
     // one lowercase letter and one number:
@@ -26,8 +28,23 @@ const Login = () => {
     return false;
   };
 
+  const user_auth = async (event) => {
+    // chặn hành vi load lại trang
+    event.preventDefault();
+    setLoading(true);
+    if (signState === "Sign In") {
+      await login(email, password);
+    } else {
+      await signup(name, email, password);
+    }
+    setLoading(false);
+  };
 
-  return (
+  return loading ? (
+    <div className="login-spinner">
+      <img src={netflix_spinner} alt="" />
+    </div>
+  ) : (
     <div className="login">
       <img src={logo} className="login-logo" alt="" />
       <div className="login-form">
@@ -100,7 +117,14 @@ const Login = () => {
             <></>
           )}
 
-          <button>{signState}</button>
+          <button
+            onClick={user_auth}
+            type="submit"
+            disabled={!isValidPassword}
+            className={isValidPassword === false ? "invalid" : "valid"}
+          >
+            {signState}
+          </button>
 
           <div className="form-help">
             <div className="remember">
