@@ -46,6 +46,7 @@
     dương (xuống dưới âm lên trên) độ sắc nét bóng 
     (càng lớn càng nhòe) độ lớn của bóng màu bóng*/
     box-shadow: 2px 2px 4px 0px rgba(255, 255, 255, 0.5);
+    
 }
 
 /* presudo edit placeholder trong thẻ input */
@@ -83,6 +84,7 @@
     box-shadow: none;
     width: 18px;
     height: 18px;
+    
 }
 
 .form-switch{
@@ -95,4 +97,27 @@
     color: #fff;
     font-weight: 500;
     cursor: pointer;
+}
+
+.textAlert{
+    color: #fa6a71;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px 0;
+}
+
+.divPassword{
+    position: relative;
+    width: 100%;
+}
+
+.lock{
+    width: 22px;
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.lock:hover{
+    scale: 1.1;
 }

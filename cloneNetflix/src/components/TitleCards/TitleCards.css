@@ -1,16 +1,16 @@
 .title-cards{
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 30px;
-}
-
-.title-cards h2{
-    margin-bottom: 8px;
+    
 }
 
 .card-list {
     display: flex;
-    gap: 10px;
+    gap: 40px;
     overflow-x: scroll;
+    align-items: center;
+    height: 220px;
+    padding-left: 20px;
 }
 /*::-webkit-scrollbar: tùy chỉnh scrollbar tổng thể
 ở đây mình dùng display none là ẩn nó đi*/
@@ -19,17 +19,26 @@
 }
 
 .card-list img {
-    width: 240px;
+    width: 220px;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
 .card-list .card {
     position: relative;
+    max-height: 200px;
+}
+
+.card-list .card img:hover{
+    scale: 1.1;
+    box-shadow: 0 0 5px wheat;
 }
 
 .card-list .card p{
     position: absolute;
-    bottom: 10px;
+    top: 102% ;
     right: 10px;
+    text-decoration: none;
+    color: white;
 }

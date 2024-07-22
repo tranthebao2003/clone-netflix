@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import './Player.css'
 import back_arrow_icon from '../../assets/back_arrow_icon.png'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Player = () => {
 
+  // Mục đích: Dùng để truy cập các tham số 
+  // động trong URL. Rất hữu ích khi bạn cần lấy 
+  // giá trị tham số từ URL để hiển thị hoặc thực 
+  // hiện các logic trong component.
+  console.log('tham số động', useParams())
   const {id} = useParams()
+
+// Mục đích: Dùng để điều hướng đến các đường dẫn 
+// khác trong ứng dụng React.
+// Cách sử dụng: useNavigate trả về một hàm điều 
+// hướng mà bạn có thể gọi với đường dẫn đích để thay 
+// đổi URL hiện tại.
+  const navigate = useNavigate()
 
   const [apiData, setApiData] = useState({
     name:"",
@@ -28,9 +40,17 @@ const Player = () => {
     .catch(err => console.error(err));
   }, [])
 
+
   return (
     <div className="player">
-      <img src={back_arrow_icon} alt="" />
+      <img
+        src={back_arrow_icon}
+        // ở đây mình dùng navigate điều hướng về
+        // trang chủ
+        onClick={() => {
+          navigate('/');
+        }}
+      />
       {/* The <iframe> element is used to embed 
       another HTML page within the current page 
       and display content in frame with width and
@@ -44,7 +64,9 @@ const Player = () => {
         allowFullScreen
       ></iframe>
       <div className="player-info">
-        <p>{apiData.published_at.slice(0,10).split('-').reverse().join('-')}</p>
+        <p>
+          {apiData.published_at.slice(0, 10).split("-").reverse().join("-")}
+        </p>
         <p>{apiData.name}</p>
         <p>{apiData.type}</p>
       </div>

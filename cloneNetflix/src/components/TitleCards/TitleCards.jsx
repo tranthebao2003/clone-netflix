@@ -76,7 +76,9 @@ const TitleCards = ({title, category}) => {
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => {
           return (
-            <Link className="card" key={index}>
+            // thẻ Link để điều hướng page mà ko cần load lại
+            // attribute to để điều hướng đến đâu
+            <Link to={`/player/${card.id}`} className="card" key={index}>
               <img src={`https://image.tmdb.org/t/p/w500/`+card.backdrop_path} alt="" />
               <p>{card.original_title}</p>
             </Link>
